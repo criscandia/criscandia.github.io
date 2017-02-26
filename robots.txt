@@ -1,0 +1,4 @@
+Sitemap: https://criscandia.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: criscandia.github.io
