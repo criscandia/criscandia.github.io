@@ -70,7 +70,34 @@
             padding: 10px;
             margin-top: 20px;
         }
+        .lang-switch {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .lang-switch button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
+    <script>
+        function switchLanguage(lang) {
+            const esElements = document.querySelectorAll('.lang-es');
+            const enElements = document.querySelectorAll('.lang-en');
+            if (lang === 'es') {
+                esElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+            } else {
+                esElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            switchLanguage('es');  // Default to Spanish
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -81,15 +108,18 @@
             </div>
         </div>
     </header>
+    <div class="container lang-switch">
+        <button onclick="switchLanguage('es')">Español</button>
+        <button onclick="switchLanguage('en')">English</button>
+    </div>
     <div class="container">
-        <div class="content">
+        <div class="content lang-es">
             <div class="section-title">
                 <h2>Perfil Profesional</h2>
             </div>
             <div class="section-content">
                 <p>Soy un profesional con formación en comercialización y amplia experiencia en desarrollo de negocios y gestión de proyectos en empresas de tecnología. Recientemente, me he especializado en programación con Python y Django, con el objetivo de aplicar mis habilidades técnicas y de liderazgo en roles de desarrollo de software. Mi portafolio de proyectos en GitHub demuestra mi capacidad para crear soluciones eficientes y efectivas utilizando tecnologías modernas.</p>
             </div>
-
             <div class="section-title">
                 <h2>Habilidades Técnicas</h2>
             </div>
@@ -102,7 +132,6 @@
                     <li><strong>Herramientas y Tecnologías:</strong> Git, GitHub, RESTful APIs, SQL, NoSQL</li>
                 </ul>
             </div>
-
             <div class="section-title">
                 <h2>Experiencia Profesional</h2>
             </div>
@@ -114,7 +143,6 @@
                     <li>Implementé soluciones tecnológicas innovadoras para satisfacer necesidades de clientes internacionales.</li>
                     <li>Especialista en generación de leads y reuniones estratégicas.</li>
                 </ul>
-
                 <h3>WoxLab</h3>
                 <p><em>Senior Manager Sales Business Development</em> | Agosto 2020 - Febrero 2024</p>
                 <ul>
@@ -122,7 +150,6 @@
                     <li>Coordiné proyectos de desarrollo de aplicaciones web y móviles, utilizando tecnologías modernas como Python y Django.</li>
                     <li>Participé en la planificación y ejecución de estrategias de marketing digital y ventas.</li>
                 </ul>
-
                 <h3>Cooperativa de Trabajo Devecoop Ltda.</h3>
                 <p><em>Business Development Manager</em> | Febrero 2015 - Agosto 2020</p>
                 <ul>
@@ -131,14 +158,12 @@
                     <li>Gestión y seguimiento de proyectos, brindando soporte al área de desarrollo.</li>
                 </ul>
             </div>
-
             <div class="section-title">
                 <h2>Educación</h2>
             </div>
             <div class="section-content">
                 <p><strong>Universidad Argentina 'John F. Kennedy'</strong> | Licenciatura en Comercialización | 2003 - 2012</p>
             </div>
-
             <div class="section-title">
                 <h2>Certificaciones</h2>
             </div>
@@ -149,63 +174,127 @@
                     <li><strong>Django</strong> - Educación IT (En curso)</li>
                 </ul>
             </div>
-
             <div class="section-title">
                 <h2>Proyectos Relevantes</h2>
             </div>
             <div class="section-content">
                 <p><strong>GitHub:</strong> <a href="https://github.com/tu-perfil">https://github.com/tu-perfil</a></p>
-
                 <div class="project">
                     <h3>Proyecto 1: Sistema de Gestión de Tareas</h3>
                     <p><strong>Descripción:</strong> Implementé una API RESTful para un sistema de gestión de tareas, utilizando Django REST Framework.</p>
                     <p><strong>Características:</strong> Autenticación de usuarios, CRUD de tareas, permisos y roles.</p>
                     <p><strong>Tecnologías:</strong> Django, Django REST Framework, PostgreSQL.</p>
                 </div>
-
                 <div class="project">
                     <h3>Proyecto 2: Aplicación Web de Gestión de Clientes</h3>
                     <p><strong>Descripción:</strong> Diseñé y desarrollé una aplicación web para la gestión de relaciones con clientes, utilizando Django y React.js.</p>
                     <p><strong>Características:</strong> Registro y seguimiento de clientes, integración de API de terceros, interfaz de usuario responsiva.</p>
                     <p><strong>Tecnologías:</strong> Django, React.js, Redux, Docker.</p>
                 </div>
-
                 <div class="project">
                     <h3>Proyecto 3: Blog Personal con Django</h3>
                     <p><strong>Descripción:</strong> Creé un blog personal con funcionalidades de publicación y comentarios.</p>
                     <p><strong>Características:</strong> Gestión de contenido, sistema de comentarios, panel de administración.</p>
-                    <p><strong>Tecnologías:</strong> Django, SQLite, Bootstrap.</p>
+                    <p><strong>Tecnologías:</strong> Django, SQLite.</p>
                 </div>
             </div>
-
-            <div class="section-title">
-                <h2>Aptitudes Principales</h2>
-            </div>
-            <div class="section-content">
-                <ul>
-                    <li>Desarrollo de Software</li>
-                    <li>Gestión de Proyectos</li>
-                    <li>Internacionalización de Negocios</li>
-                    <li>Generación de Leads</li>
-                    <li>Ventas y Marketing Digital</li>
-                </ul>
-            </div>
-
-            <div class="section-title">
-                <h2>Idiomas</h2>
-            </div>
-            <div class="section-content">
-                <ul>
-                    <li>Español (Nativo)</li>
-                    <li>Inglés (Avanzado)</li>
-                </ul>
-            </div>
-
             <div class="section-title">
                 <h2>Referencias</h2>
             </div>
             <div class="section-content">
                 <p>Disponibles a solicitud.</p>
+            </div>
+        </div>
+        <div class="content lang-en">
+            <div class="section-title">
+                <h2>Professional Profile</h2>
+            </div>
+            <div class="section-content">
+                <p>I am a marketing professional with extensive experience in business development and project management in technology companies. Recently, I have specialized in programming with Python and Django, aiming to apply my technical and leadership skills in software development roles. My GitHub project portfolio demonstrates my ability to create efficient and effective solutions using modern technologies.</p>
+            </div>
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Programming Languages:</strong> Python, JavaScript</li>
+                    <li><strong>Frameworks and Libraries:</strong> Django, Django REST Framework, Node.js, React.js, Redux, Vue.js</li>
+                    <li><strong>DevOps:</strong> Docker</li>
+                    <li><strong>Methodologies:</strong> Agile, Scrum</li>
+                    <li><strong>Tools and Technologies:</strong> Git, GitHub, RESTful APIs, SQL, NoSQL</li>
+                </ul>
+            </div>
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="section-content">
+                <h3>WoxLab Solutions</h3>
+                <p><em>Founder and Principal Consultant</em> | February 2024 - Present</p>
+                <ul>
+                    <li>Developed global strategies for business internationalization.</li>
+                    <li>Implemented innovative technological solutions to meet the needs of international clients.</li>
+                    <li>Specialized in lead generation and strategic meetings.</li>
+                </ul>
+                <h3>WoxLab</h3>
+                <p><em>Senior Manager Sales Business Development</em> | August 2020 - February 2024</p>
+                <ul>
+                    <li>Developed and led business development and sales initiatives.</li>
+                    <li>Coordinated web and mobile app development projects using modern technologies such as Python and Django.</li>
+                    <li>Participated in the planning and execution of digital marketing and sales strategies.</li>
+                </ul>
+                <h3>Cooperativa de Trabajo Devecoop Ltda.</h3>
+                <p><em>Business Development Manager</em> | February 2015 - August 2020</p>
+                <ul>
+                    <li>Managed and expanded the client portfolio.</li>
+                    <li>Developed strategic alliances and new markets.</li>
+                    <li>Managed and monitored projects, providing support to the development area.</li>
+                </ul>
+            </div>
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="section-content">
+                <p><strong>Universidad Argentina 'John F. Kennedy'</strong> | Bachelor's Degree in Marketing | 2003 - 2012</p>
+            </div>
+            <div class="section-title">
+                <h2>Certifications</h2>
+            </div>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Basic Python Course</strong> - Platzi (September 2021)</li>
+                    <li><strong>Intensive Python</strong> - Laboratorio de Software Libre UTN-FRA (February 2015)</li>
+                    <li><strong>Django</strong> - Educación IT (In progress)</li>
+                </ul>
+            </div>
+            <div class="section-title">
+                <h2>Relevant Projects</h2>
+            </div>
+            <div class="section-content">
+                <p><strong>GitHub:</strong> <a href="https://github.com/tu-perfil">https://github.com/tu-perfil</a></p>
+                <div class="project">
+                    <h3>Project 1: Task Management System</h3>
+                    <p><strong>Description:</strong> Implemented a RESTful API for a task management system using Django REST Framework.</p>
+                    <p><strong>Features:</strong> User authentication, task CRUD, permissions and roles.</p>
+                    <p><strong>Technologies:</strong> Django, Django REST Framework, PostgreSQL.</p>
+                </div>
+                <div class="project">
+                    <h3>Project 2: Client Management Web Application</h3>
+                    <p><strong>Description:</strong> Designed and developed a web application for customer relationship management using Django and React.js.</p>
+                    <p><strong>Features:</strong> Client registration and tracking, third-party API integration, responsive user interface.</p>
+                    <p><strong>Technologies:</strong> Django, React.js, Redux, Docker.</p>
+                </div>
+                <div class="project">
+                    <h3>Project 3: Personal Blog with Django</h3>
+                    <p><strong>Description:</strong> Created a personal blog with posting and commenting functionalities.</p>
+                    <p><strong>Features:</strong> Content management, commenting system, admin panel.</p>
+                    <p><strong>Technologies:</strong> Django, SQLite.</p>
+                </div>
+            </div>
+            <div class="section-title">
+                <h2>References</h2>
+            </div>
+            <div class="section-content">
+                <p>Available upon request.</p>
             </div>
         </div>
     </div>
