@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículum de Cristian Leonardo Candia</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.plugin.html2canvas.js"></script>
+    
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -291,34 +297,42 @@
     <footer>
         <div class="container">
             <p>&copy; 2024 Cristian Leonardo Candia</p>
+            <div class="container" id="pdfContent">
+                <!-- Tu contenido aquí -->
+            </div>
             <button onclick="generatePDF()">Descargar PDF</button>
-        </div>
-    </footer>
+            
+            <!-- Incluir jsPDF desde CDN antes de tu script personalizado -->
+            
+ˇ
+            <script>
+                function generatePDF() {
+                    // Asegúrate de acceder a jsPDF de la manera correcta
+                    const jsPDF = window.jspdf.jsPDF;
+            
+                    // Crea una nueva instancia de jsPDF
+                    const doc = new jsPDF('p','mm','legal');
 
-    <!-- Importar jsPDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-
-    <!-- Script para generar PDF -->
-    <script>
-        function generatePDF() {
-            const doc = new jsPDF();
-            const content = document.querySelector('.container'); // Selecciona el contenedor principal
-
-            // Opciones para el PDF
-            const options = {
-                margin: {
-                    top: 20,
-                    left: 20,
-                    right: 20,
-                    bottom: 20
+                    const options = {
+                        scale: 1,
+                        useCORS: true,
+                        scrollY: -window.scrollY,
+                        
+                    };
+            
+                    // Aquí va el código para generar tu PDF...
+                    const content = document.querySelector('.lang-es');
+                    html2canvas(content, options).then(canvas => {
+                        const imgData = canvas.toDataURL('image/png');
+                        const imgWidth = 210;
+                        const imgHeight = canvas.height * imgWidth / canvas.width;
+                        doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight); // Añade el lienzo como imagen al PDF
+                        doc.save('curriculum.pdf', { compress: true });
+                    });
+                    
                 }
-            };
-
-            // Convierte el contenido a PDF
-            doc.html(content, options, function() {
-                doc.save('curriculum.pdf');
-            });
-        }
-    </script>
-</body>
+            </script>
+        </div>
+    </body>
 </html>
+
