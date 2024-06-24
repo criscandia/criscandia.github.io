@@ -289,7 +289,36 @@
         </div>
     </div>
     <footer>
-        <p>&copy; 2024 Cristian Leonardo Candia</p>
+        <div class="container">
+            <p>&copy; 2024 Cristian Leonardo Candia</p>
+            <button onclick="generatePDF()">Descargar PDF</button>
+        </div>
     </footer>
+
+    <!-- Importar jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+
+    <!-- Script para generar PDF -->
+    <script>
+        function generatePDF() {
+            const doc = new jsPDF();
+            const content = document.querySelector('.container'); // Selecciona el contenedor principal
+
+            // Opciones para el PDF
+            const options = {
+                margin: {
+                    top: 20,
+                    left: 20,
+                    right: 20,
+                    bottom: 20
+                }
+            };
+
+            // Convierte el contenido a PDF
+            doc.html(content, options, function() {
+                doc.save('curriculum.pdf');
+            });
+        }
+    </script>
 </body>
 </html>
